@@ -3,7 +3,7 @@ from rest_framework import permissions
 
 
 from .serializers import ProductSerializers
-from .models import Category, Product
+from .models import Product
 from .permissions import IsOwner
 
 

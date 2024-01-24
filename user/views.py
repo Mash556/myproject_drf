@@ -16,13 +16,6 @@ class UserRegistration(APIView):
     
 class LoginView(ObtainAuthToken):
     serializer_class = LoginSerializer
-
-    # def get(self, request):
-    #     favorite = Favorite.objects.filter(owner=request.user).all()
-    #     serializer = FavoriteSerializer(favorite, many=True)
-    #     if serializer.data:
-    #         return Response(serializer.data, 200)
-    #     return Response('Нет избранных постов',204)
     
     def post(self, request):
         serializer = self.serializer_class(data=request.data, context={'request':request})
@@ -43,7 +36,7 @@ class LogoutView(APIView):
     def post(self, request):
         user = request.user
         Token.objects.filter(user=user).delete()
-        return Response('успешно вышли с аккаунта')
+        return Response('успешно вышли c аккаунта')
 
 
 # написать UserListAPIView на generics запрос возвращает всех существующих ползователей
